@@ -1,0 +1,40 @@
+.catalog__item {
+    padding: 2.3125rem 1.4375rem 1.375rem 1.4375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    row-gap: 0.875rem;
+    border-radius: 0.5rem;
+    background: #FFF;
+    filter: drop-shadow(0.3125rem 0.3125rem 2.1875rem rgba(0, 0, 0, 0.25));
+}
+
+.catalog__item:hover{
+    filter: drop-shadow(0.3125rem 0.3125rem 2.1875rem rgba(0, 0, 0, 0.8));
+}
+.catalog__item img{
+    max-width: 100%;
+    min-height: 7.1875rem;
+    object-fit: cover;
+}
+
+.catalog__item-country {
+    align-self: end;
+}
+
+.catalog__item-price {
+    align-self: end;
+}
+
+.product{
+    display: flex;
+}
+
+.catalog__item span{
+    text-transform: uppercase;
+}
+
+.product p:not(:first-child){
+    margin-left: 2px;
+}

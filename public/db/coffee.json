@@ -1,0 +1,10 @@
+{"product":
+    [
+        {"name":"Aromatico","type":"Coffee","weight":"1 kg","country":"Brazil","price":"6.99","urlImg":"img/catalog/coffee.jpg","id":1},
+        {"name":"Puzanno","type":"Coffee","weight":"1 kg","country":"Brazil","price":"6.99","urlImg":"img/catalog/coffee.jpg","id":2},
+        {"name":"Truffalo","type":"Coffee","weight":"1 kg","country":"Kenya","price":"8.99","urlImg":"img/catalog/coffee.jpg","id":3},
+        {"name":"Basttardo","type":"Coffee","weight":"1 kg","country":"Kenya","price":"8.99","urlImg":"img/catalog/coffee.jpg","id":4},
+        {"name":"Aroma","type":"Coffee","weight":"1 kg","country":"Columbia","price":"16.99","urlImg":"img/catalog/coffee.jpg","id":5},
+        {"name":"Lafaretto","type":"Coffee","weight":"1 kg","country":"Columbia","price":"16.99","urlImg":"img/catalog/coffee.jpg","id":6}
+    ]
+}

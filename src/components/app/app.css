@@ -1,0 +1,70 @@
+/*Menu*/
+.menu {
+    display: flex;
+    align-items: flex-end;
+    min-height: 2.5rem;
+}
+.menu__list{
+    position: relative;
+}
+
+.menu__list::before{
+    content: '';
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background: url('../../resources/img/coffee-beans.svg') center center/cover no-repeat;
+    position: absolute;
+    top: -22px;
+    left: -32px;
+}
+.menu__list_black::before{
+    background: url('../../resources/img/coffee-beans-white.svg') center center/cover no-repeat;
+
+}
+.menu__list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2.5rem;
+    row-gap: 1.25rem;
+
+}
+
+.menu__link {
+    color: #FFF;
+    font-size: 0.75rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+.menu__link_black {
+    color: #000;
+
+}
+.menu__link:hover {
+    text-decoration: underline;
+ }
+
+ @media (max-width: 48em) {
+    .menu__list {
+        flex-direction: column;
+    }
+    .menu__list::before,.menu__list_black::before{
+        top: 1.5625rem;
+        left: -3.25rem;
+    }
+ }
+/*Animation*/
+.pulse {
+    animation: pulse 1.5s ease-in-out .5s infinite
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1
+    }
+    50% {
+        opacity: .4
+    }
+    100% {
+        opacity: 1
+    }
+}

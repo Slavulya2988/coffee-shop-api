@@ -1,0 +1,32 @@
+/* Header*/
+.header {
+    min-height: 16.25rem;
+    background: url('../../resources/img/header/bg.jpg')center center/cover no-repeat;
+}
+.header__menu {
+    margin-top: 1.875rem;
+    padding-left:  14.1875rem;
+
+}
+
+.header__title {
+    padding: 3.75rem 0 5rem 0;
+}
+.header__title p{
+    letter-spacing: 0.1875rem;
+ }
+
+
+ @media (max-width: 48em) {
+    .header__menu {
+        padding: 0 6.25rem;
+        justify-content: center;
+
+    }
+
+    .header__title {
+        padding: 2.5rem 0 3.75rem 0;
+    }
+
+
+ };
