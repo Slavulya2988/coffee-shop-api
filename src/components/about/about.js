@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import './about.css';
-// import girl from '../../resources/img/about/girl_with_coffe.jpg';
 import coffee from '../../resources/img/about/coffee-beans-black.svg';
 import CoffeeService from '../../services/CoffeeService';
 import Spinner from '../spinner/spinner';
@@ -8,10 +7,7 @@ import ErrorMessage from '../errorMessage/error';
 
 
 class About extends Component {
-    constructor(props){
-        super(props);
-        this.updateAbout();
-    }
+
     state = {
        about: {},
        loading: true,
@@ -20,8 +16,21 @@ class About extends Component {
 
     coffeeService = new CoffeeService();
 
+    // Хук житьєвого цикла
+    componentDidMount(){
+        // console.log('mount');
+        this.updateAbout();
+        // this.timerId =  setInterval( this.updateAbout, 3000);
+    }
+    //
+    componentWillUnmount(){
+        // console.log('unmount');
+        clearInterval(this.timerId);
+    }
+
     // загружение блока about
     onAboutLoaded = (about) =>{
+        // console.log('update');
         this.setState({
             about,
             loading: false})
@@ -38,18 +47,10 @@ class About extends Component {
             .getAbout(0)
             .then(this.onAboutLoaded)
             .catch(this.onAboutError)
-
-        // this.coffeeService
-        //     .getProduct(0)
-        //     .then(res => console.log(res))
-
-        // this.coffeeService
-        // .getAllProduct()
-        // .then(res => console.log(res))
-
     }
 
     render(){
+        // console.log('render');
         const {about, loading, error} = this.state;
         const errorMessage = error ? <ErrorMessage/> : null;
         const spinner = loading ? <Spinner/> : null;
@@ -57,9 +58,11 @@ class About extends Component {
 
         return(
            <>
+
             {errorMessage}
             {spinner}
             {view}
+
            </>
         )
     }
