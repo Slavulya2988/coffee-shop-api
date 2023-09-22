@@ -11,8 +11,7 @@ class Catalog extends Component {
     state = {
         coffeList: [],
         loading: true,
-        error: false,
-        filter: 'All'
+        error: false
     }
 
     coffeeService = new CoffeeService();
@@ -58,10 +57,6 @@ class Catalog extends Component {
     }
     /* search product*/
 
-    // onUpdateSearch = (term) => {
-    //     this.setState({term});
-    // }
-
     searchProduct = (massiv, term) => {
         if(term.length === 0){
             return massiv;
@@ -73,25 +68,22 @@ class Catalog extends Component {
 
     }
     /* filter */
-    // filterProduct = (massiv, filter) => {
-    //     if (filter === 'All') {
-    //         return massiv;
-    //     }
-    //     return massiv.filter(item => {
-    //             return item.country === filter
-    //          })
-    //     }
+    filterProduct = (massiv, filter) => {
+        if (filter === 'All') {
+            return massiv;
+        }
+        return massiv.filter(item => {
+                return item.country === filter
+             })
+        }
 
 
-    // onSelectFilter = (filter) => {
-    //     this.setState({filter});
-    // }
     /* */
     render(){
         const {coffeList, loading, error} = this.state;
-        const {term} = this.props;
+        const {term, filter} = this.props;
 
-        const visibleItems = this.searchProduct(coffeList,term);
+        const visibleItems = this.filterProduct(this.searchProduct(coffeList,term), filter);
         const items = this.renderCatalogItem(visibleItems);
 
 

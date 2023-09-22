@@ -32,6 +32,7 @@ class Find extends Component {
                   <button type="button"
                           className={clazz}
                           key = {name}
+                          onClick={() => this.props.onSelectFilter(name)}
                           >
                           {name}
                   </button>

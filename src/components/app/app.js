@@ -13,12 +13,16 @@ class App extends Component {
 
     state = {
              term: '',
-            filter: 'All'
+             filter: 'All'
         }
 
 
     onUpdateSearch = (term) => {
         this.setState({term});
+    }
+
+    onSelectFilter = (filter) => {
+        this.setState({filter});
     }
 
 render(){
@@ -29,8 +33,12 @@ render(){
                 <Header/>
                 <main className="page">
                     <About/>
-                    <Find   onUpdateSearch = {this.onUpdateSearch}/>
-                    <Catalog term = {this.state.term}/>
+                    <Find   onUpdateSearch = {this.onUpdateSearch}
+                            onSelectFilter = {this.onSelectFilter}
+                    />
+                    <Catalog term = {this.state.term}
+                             filter = {this.state.filter}
+                    />
                 </main>
                 <Footer/>
             </div>
