@@ -17,16 +17,22 @@ class Catalog extends Component {
     coffeeService = new CoffeeService();
 
     componentDidMount(){
-              this.updateCoffeeList();
-
+        this.onRequestCoffeeList()
     }
 
-    updateCoffeeList = () => {
+    onRequestCoffeeList = (offset) => {
+        this.onCoffeeListLoading(offset);
         this.coffeeService
-        .getAllProduct()
-        .then(this.onCoffeeListLoaded)
+            .getAllProduct()
+            .then(this.onCoffeeListLoaded)
+            .catch(this.onCoffeeListError)
     }
 
+    onCoffeeListLoading = () => {
+        this.setState({
+            loading: true
+        })
+    }
     onCoffeeListLoaded = (coffeList) => {
         this.setState({
             coffeList,
@@ -40,7 +46,7 @@ class Catalog extends Component {
             loading: false})
     }
 
-
+    /* рендерінг усіх карток */
     renderCatalogItem(arr){
         const cards = arr.map((item) => {
             const {id, ...itemProps} = item;
@@ -56,7 +62,6 @@ class Catalog extends Component {
         )
     }
     /* search product*/
-
     searchProduct = (massiv, term) => {
         if(term.length === 0){
             return massiv;
@@ -77,7 +82,6 @@ class Catalog extends Component {
              })
         }
 
-
     /* */
     render(){
         const {coffeList, loading, error} = this.state;
@@ -97,6 +101,9 @@ class Catalog extends Component {
                 {errorMessage}
                 {spinner}
                 {content}
+                <div className="catalog__control">
+                    <button  className="catalog__button">Load more...</button>
+                </div>
                 </div>
         </div>
         )

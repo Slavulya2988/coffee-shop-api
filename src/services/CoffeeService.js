@@ -1,5 +1,7 @@
 class CoffeeService {
     _apiBase = 'db/db.json';
+    _baseOffset = 6;
+
 
     getResource = async (url) => {
         let res = await fetch(url);
@@ -11,13 +13,14 @@ class CoffeeService {
         return await res.json();
     }
 
-    getAllProduct = async () => {
+    getAllProduct = async (offset = this._baseOffset) => {
         const res = await this.getResource(`${this._apiBase}`);
-        return res.product.map(this._transformDataCatalog);
+        const resMassive = res.product.map(this._transformDataCatalog);
+        return resMassive.slice(0, offset);
     }
 
     getProduct = async (id) => {
-         const res = await this.getResource(`${this._apiBase}`);
+        const res = await this.getResource(`${this._apiBase}`);
         return this._transformDataCatalog(res.product[id]);
 
     }
@@ -42,6 +45,7 @@ class CoffeeService {
             weight: resProduct.weight,
             country: resProduct.country,
             price: resProduct.price,
+            img: resProduct.urlImg,
             id: resProduct.id
         }
     }

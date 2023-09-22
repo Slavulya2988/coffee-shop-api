@@ -8,6 +8,7 @@ import About from '../about/about';
 import Find from '../find/find';
 import Catalog from '../catalog/catalog';
 import Footer from '../footer/footer';
+import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 
 class App extends Component {
 
@@ -26,19 +27,23 @@ class App extends Component {
     }
 
 render(){
-
+   const {term, filter} = this.state;
     return (
         <div className="app">
             <div className="wrapper">
                 <Header/>
                 <main className="page">
-                    <About/>
-                    <Find   onUpdateSearch = {this.onUpdateSearch}
-                            onSelectFilter = {this.onSelectFilter}
-                    />
-                    <Catalog term = {this.state.term}
-                             filter = {this.state.filter}
-                    />
+                    <ErrorBoundary>
+                        <About/>
+                    </ErrorBoundary>
+                    <ErrorBoundary>
+                        <Find   onUpdateSearch = {this.onUpdateSearch}
+                                onSelectFilter = {this.onSelectFilter}/>
+                    </ErrorBoundary>
+                    <ErrorBoundary>
+                        <Catalog term = {term}
+                                filter = {filter} />
+                    </ErrorBoundary>
                 </main>
                 <Footer/>
             </div>

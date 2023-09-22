@@ -28,6 +28,13 @@ class About extends Component {
         clearInterval(this.timerId);
     }
 
+    // початок завантаження
+    onAboutLoading = () => {
+        this.setState({
+            loading: true
+        })
+    }
+
     // загружение блока about
     onAboutLoaded = (about) =>{
         // console.log('update');
@@ -43,6 +50,9 @@ class About extends Component {
     }
     //отельний метод класса якій обращаеється к серверу і отримує дані
     updateAbout = () => {
+        //запускаємо спинер до виконання запиту до сереверу
+        this.onAboutLoading();
+        // запит до серевера
         this.coffeeService
             .getAbout(0)
             .then(this.onAboutLoaded)
