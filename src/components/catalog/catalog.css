@@ -26,6 +26,10 @@
     font-size: 12px;
 }
 
+.catalog__button:disabled{
+    background: #952;
+}
+
 @media (max-width: 62em) {
     .catalog__items {
         column-gap: 2.5rem;

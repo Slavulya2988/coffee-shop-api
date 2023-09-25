@@ -11,33 +11,48 @@ class Catalog extends Component {
     state = {
         coffeList: [],
         loading: true,
-        error: false
+        error: false,
+        newItemLoading: false,
+        offset: 6,
+        itemEnded: false
     }
 
     coffeeService = new CoffeeService();
 
     componentDidMount(){
-        this.onRequestCoffeeList()
+        this.onRequest()
     }
 
-    onRequestCoffeeList = (offset) => {
-        this.onCoffeeListLoading(offset);
+    onRequest = (offset) => {
+        this.onCoffeeListLoading();
         this.coffeeService
-            .getAllProduct()
+            .getAllProduct(offset)
             .then(this.onCoffeeListLoaded)
             .catch(this.onCoffeeListError)
     }
 
     onCoffeeListLoading = () => {
         this.setState({
-            loading: true
+            loading: true,
+            newItemLoading: true
         })
     }
-    onCoffeeListLoaded = (coffeList) => {
-        this.setState({
-            coffeList,
-            loading: false
-        })
+
+    onCoffeeListLoaded = (newCoffeeList) => {
+        let eneded = false;
+        if(newCoffeeList.length > 14){
+            eneded = true;
+        }
+
+        this.setState(({offset}) => (
+            {
+                coffeList:  newCoffeeList,
+                loading: false,
+                newItemLoading: false,
+                offset: offset + 3,
+                itemEnded: eneded
+            }
+        ))
     }
 
     onCoffeeListError = () => {
@@ -84,7 +99,7 @@ class Catalog extends Component {
 
     /* */
     render(){
-        const {coffeList, loading, error} = this.state;
+        const {coffeList, loading, error, offset, newItemLoading, itemEnded} = this.state;
         const {term, filter} = this.props;
 
         const visibleItems = this.filterProduct(this.searchProduct(coffeList,term), filter);
@@ -102,7 +117,12 @@ class Catalog extends Component {
                 {spinner}
                 {content}
                 <div className="catalog__control">
-                    <button  className="catalog__button">Load more...</button>
+                    <button
+                        className="catalog__button"
+                        disabled={newItemLoading}
+                        onClick={()=> this.onRequest(offset)}
+                        style={{'display': itemEnded ? 'none' : '' }}
+                    >Load more...</button>
                 </div>
                 </div>
         </div>

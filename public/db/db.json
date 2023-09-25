@@ -29,6 +29,12 @@
         {"name":"Lafaretto","type":"Coffee","weight":"1 kg","country":"Columbia","price":"16.99","urlImg":"img/catalog/coffee_6.jpg","id":6},
         {"name":"Lafaretto","type":"Coffee","weight":"1 kg","country":"Columbia","price":"16.99","urlImg":"img/catalog/coffee_6.jpg","id":7},
         {"name":"Lafaretto","type":"Coffee","weight":"1 kg","country":"Columbia","price":"16.99","urlImg":"img/catalog/coffee_6.jpg","id":8},
-        {"name":"Lafaretto","type":"Coffee","weight":"1 kg","country":"Columbia","price":"16.99","urlImg":"img/catalog/coffee_6.jpg","id":9}
+        {"name":"Lafaretto","type":"Coffee","weight":"1 kg","country":"Columbia","price":"16.99","urlImg":"img/catalog/coffee_6.jpg","id":9},
+        {"name":"Aromatico","type":"Coffee","weight":"1 kg","country":"Brazil","price":"6.99","urlImg":"img/catalog/coffee_1.jpg","id":10},
+        {"name":"Ulyublena","type":"Coffee","weight":"1 kg","country":"Brazil","price":"16.99","urlImg":"img/catalog/coffee_2.jpg","id":11},
+        {"name":"Aromatico","type":"Coffee","weight":"1 kg","country":"Brazil","price":"6.99","urlImg":"img/catalog/coffee_1.jpg","id":12},
+        {"name":"Ulyublena","type":"Coffee","weight":"1 kg","country":"Brazil","price":"16.99","urlImg":"img/catalog/coffee_2.jpg","id":13},
+        {"name":"Aromatico","type":"Coffee","weight":"1 kg","country":"Brazil","price":"6.99","urlImg":"img/catalog/coffee_1.jpg","id":14},
+        {"name":"Ulyublena","type":"Coffee","weight":"1 kg","country":"Brazil","price":"16.99","urlImg":"img/catalog/coffee_2.jpg","id":15}
     ]
  }
