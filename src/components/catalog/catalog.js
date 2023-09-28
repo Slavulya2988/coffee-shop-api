@@ -52,7 +52,8 @@ class Catalog extends Component {
                 offset: offset + 3,
                 itemEnded: eneded
             }
-        ))
+        )
+        )
     }
 
     onCoffeeListError = () => {
@@ -60,13 +61,33 @@ class Catalog extends Component {
             error:true,
             loading: false})
     }
+    /* створення масиву рефів та його наповнення*/
+    itemRefs = [];
+
+    setRef = (ref) => {
+        this.itemRefs.push(ref);
+    }
+
+    /*метод по установки фокуса для обраного елементу каталога */
+
+    focusOnItem = (id) =>{
+        this.itemRefs.forEach(item => item.coffeList.remove('catalog__item_selected'));
+        this.itemRefs[id].coffeList.add('catalog__item_selected');
+        this.itemRefs[id].focus();
+    }
 
     /* рендерінг усіх карток */
     renderCatalogItem(arr){
+
         const cards = arr.map((item) => {
             const {id, ...itemProps} = item;
+            // console.log(id);
             return(
-                <CatalogItem key={id} {...itemProps}/>
+                <CatalogItem
+                    key={id}
+                    {...itemProps}
+                    onClick={() => console.log(id) }
+                    />
             )
         });
 

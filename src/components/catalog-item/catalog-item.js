@@ -1,8 +1,14 @@
-import './catalog-item.css'
-// import coffee from '../../resources/img/catalog/coffe.jpg';
+import { Component } from 'react';
+import './catalog-item.css';
+import PropTypes from 'prop-types';
 
-const CatalogItem = (props) => {
-    const {name, type, weight, country, price, img} = props;
+
+class CatalogItem extends Component {
+    constructor(props){
+        super(props);
+    }
+    render(){
+        const {name, type, weight, country, price, img} = this.props;
     return (
         <a href="#" className="catalog__item">
             <div className="catalog__item-img">
@@ -22,6 +28,13 @@ const CatalogItem = (props) => {
             </div>
         </a>
     )
+    }
+}
+
+CatalogItem.propTypes = {
+    name: PropTypes.string.isRequired,
+    country: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired
 }
 
 export default CatalogItem;

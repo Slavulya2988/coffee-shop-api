@@ -13,10 +13,10 @@ class CoffeeService {
         return await res.json();
     }
 
-    getAllProduct = async (offset = this._baseOffset) => {
+    getAllProduct = async ( offset = this._baseOffset) => {
         const res = await this.getResource(`${this._apiBase}`);
         const resMassive = res.product.map(this._transformDataCatalog);
-        return resMassive.slice(0, offset);
+        return resMassive.slice(0,offset);
     }
 
     getProduct = async (id) => {

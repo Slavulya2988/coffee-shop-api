@@ -42,7 +42,7 @@ render(){
                     </ErrorBoundary>
                     <ErrorBoundary>
                         <Catalog term = {term}
-                                filter = {filter} />
+                                 filter = {filter}/>
                     </ErrorBoundary>
                 </main>
                 <Footer/>
