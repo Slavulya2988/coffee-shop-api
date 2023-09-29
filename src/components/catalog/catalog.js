@@ -19,6 +19,13 @@ class Catalog extends Component {
 
     coffeeService = new CoffeeService();
 
+    /* створення масиву рефів та його наповнення*/
+    itemRefs = [];
+
+    setRef = (ref) => {
+        this.itemRefs.push(ref);
+    }
+
     componentDidMount(){
         this.onRequest()
     }
@@ -61,33 +68,30 @@ class Catalog extends Component {
             error:true,
             loading: false})
     }
-    /* створення масиву рефів та його наповнення*/
-    itemRefs = [];
 
-    setRef = (ref) => {
-        this.itemRefs.push(ref);
-    }
 
     /*метод по установки фокуса для обраного елементу каталога */
 
     focusOnItem = (id) =>{
-        this.itemRefs.forEach(item => item.coffeList.remove('catalog__item_selected'));
-        this.itemRefs[id].coffeList.add('catalog__item_selected');
-        this.itemRefs[id].focus();
+        this.itemRefs.forEach(item => item.setFocus)
+       // this.itemRefs.forEach(item => item.coffeList.remove('catalog__item_selected'));
+       // this.itemRefs[id].coffeList.add('catalog__item_selected');
+       // this.itemRefs[id].focus();
     }
+
 
     /* рендерінг усіх карток */
     renderCatalogItem(arr){
 
-        const cards = arr.map((item) => {
+        const cards = arr.map((item, i) => {
             const {id, ...itemProps} = item;
-            // console.log(id);
+
             return(
                 <CatalogItem
                     key={id}
                     {...itemProps}
-                    onClick={() => console.log(id) }
-                    />
+                    ref = {this.setRef}
+                />
             )
         });
 
