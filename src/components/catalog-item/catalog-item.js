@@ -6,20 +6,13 @@ import PropTypes from 'prop-types';
 class CatalogItem extends Component {
 
 
-    setFocus = (e) => {
-
-         e.target.classList.toggle('catalog__item_selected');
-         e.target.focus();
-      //  console.log('test');
-    }
-
     render(){
         const {name, type, weight, country, price, img} = this.props;
     return (
 
             <a href="#"
                className="catalog__item"
-               onClick={this.setFocus}
+
                >
                 <div className="catalog__item-img">
                     <img src={img} alt="coffee"/>

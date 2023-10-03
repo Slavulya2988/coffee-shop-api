@@ -27,7 +27,7 @@
 }
 
 .catalog__button:disabled{
-    background: #952;
+    background: #C0C0C0;
 }
 
 @media (max-width: 62em) {

@@ -38,7 +38,9 @@ render(){
                     </ErrorBoundary>
                     <ErrorBoundary>
                         <Find   onUpdateSearch = {this.onUpdateSearch}
-                                onSelectFilter = {this.onSelectFilter}/>
+                                onSelectFilter = {this.onSelectFilter}
+                                filter = {filter}
+                                />
                     </ErrorBoundary>
                     <ErrorBoundary>
                         <Catalog term = {term}

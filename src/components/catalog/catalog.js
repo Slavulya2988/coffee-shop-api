@@ -70,16 +70,6 @@ class Catalog extends Component {
     }
 
 
-    /*метод по установки фокуса для обраного елементу каталога */
-
-    focusOnItem = (id) =>{
-        this.itemRefs.forEach(item => item.setFocus)
-       // this.itemRefs.forEach(item => item.coffeList.remove('catalog__item_selected'));
-       // this.itemRefs[id].coffeList.add('catalog__item_selected');
-       // this.itemRefs[id].focus();
-    }
-
-
     /* рендерінг усіх карток */
     renderCatalogItem(arr){
 
@@ -89,9 +79,7 @@ class Catalog extends Component {
             return(
                 <CatalogItem
                     key={id}
-                    {...itemProps}
-                    ref = {this.setRef}
-                />
+                    {...itemProps}/>
             )
         });
 

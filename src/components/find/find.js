@@ -6,6 +6,7 @@ class Find extends Component {
         state = {
             term: ''
         }
+
         buttonsDB = [
             { name: 'Brazil' },
             { name: 'Kenya' },
@@ -26,8 +27,9 @@ class Find extends Component {
 
     const buttons = () => {
      return   this.buttonsDB.map( ({name}) => {
+
         const active = this.props.filter === name;
-        const clazz = active ? 'filter__button active' : 'filter__button';
+        const clazz = active ? 'filter__button filter__button_selected' : 'filter__button';
               return (
                   <button type="button"
                           className={clazz}

@@ -49,10 +49,11 @@
 .filter__button:hover{
     filter: drop-shadow(0.3125rem 0.3125rem 2.1875rem rgba(0, 0, 0, 0.8));
 }
-
-.filter__button.active{
-    filter: drop-shadow(0.3125rem 0.3125rem 2.1875rem rgba(0, 0, 0, 0.8));
+.filter__button_selected{
+    background: #C0C0C0;
 }
+
+
 @media (max-width: 62em) {
     .find__form {
         padding: 1.875rem 0.3125rem 1.875rem 0.3125rem;
